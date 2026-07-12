@@ -1,0 +1,57 @@
+{
+    "version": 10,
+    "cmakeMinimumRequired": {
+        "major": 4,
+        "minor": 2,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "Default",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "${presetName}"
+            }
+        },
+        {
+            "name": "Debug",
+            "displayName": "Debug",
+            "inherits": "Default"
+        },
+        {
+            "name": "Release",
+            "displayName": "Release",
+            "inherits": "Default"
+        },
+        {
+            "name": "RelWithDebInfo",
+            "displayName": "Release with Debug Information",
+            "inherits": "Default"
+        },
+        {
+            "name": "MinSizeRel",
+            "displayName": "Minimum Size Release",
+            "inherits": "Default"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "Debug",
+            "configurePreset": "Debug"
+        },
+        {
+            "name": "Release",
+            "configurePreset": "Release"
+        },
+        {
+            "name": "RelWithDebInfo",
+            "configurePreset": "RelWithDebInfo"
+        },
+        {
+            "name": "MinSizeRel",
+            "configurePreset": "MinSizeRel"
+        }
+    ]
+}

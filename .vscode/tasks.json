@@ -6,11 +6,8 @@
             "type": "shell",
             "command": "cmake",
             "args": [
-                "-B",
-                "${workspaceFolder}/build",
-                "-S",
-                "${workspaceFolder}",
-                "-DCMAKE_BUILD_TYPE=${input:buildType}"
+                "--preset",
+                "${input:buildType}"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -23,8 +20,7 @@
             "command": "cmake",
             "args": [
                 "--build",
-                "${workspaceFolder}/build",
-                "--config",
+                "--preset",
                 "${input:buildType}"
             ],
             "options": {
