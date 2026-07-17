@@ -1,6 +1,12 @@
+[submodule "vendor/lua"]
+	path = vendor/lua
+	url = https://github.com/lua/lua.git
 [submodule "vendor/SDL"]
 	path = vendor/SDL
 	url = https://github.com/libsdl-org/SDL.git
 [submodule "vendor/SDL_image"]
 	path = vendor/SDL_image
 	url = https://github.com/libsdl-org/SDL_image.git
+[submodule "vendor/sol2"]
+	path = vendor/sol2
+	url = https://github.com/ThePhD/sol2.git
