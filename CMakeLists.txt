@@ -49,7 +49,7 @@ if(BUILD_LUA_VENDORED)
         target_link_libraries(Lua PRIVATE dl)
     endif()
 else()
-    find_package(Lua 5.5 EXACT REQUIRED)
+    find_package(Lua 5.4 EXACT REQUIRED)
 
     if(Lua_FOUND AND NOT TARGET Lua::Lua)
         add_library(Lua::Lua INTERFACE IMPORTED)
@@ -61,8 +61,8 @@ else()
     endif()
 endif()
 
-set(SOL2_BUILD_LUA FALSE CACHE BOOL "")
-set(SOL2_LUA_VERSION "5.5.0" CACHE STRING "")
+set(SOL2_BUILD_LUA OFF CACHE BOOL "")
+set(SOL2_LUA_VERSION "5.4.8" CACHE STRING "")
 
 if(BUILD_SOL2_VENDORED)
     add_subdirectory("${CMAKE_SOURCE_DIR}/vendor/sol2")
@@ -71,6 +71,12 @@ else()
 endif()
 
 add_executable(${EXECUTABLE_NAME})
+
+set_target_properties(${EXECUTABLE_NAME} PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON
+    CXX_EXTENSIONS OFF
+)
 
 target_include_directories(${EXECUTABLE_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")
 
